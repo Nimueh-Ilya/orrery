@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 
 export default function AsteroidCard() {
   const [planetData, setPlanetData] = useState([]);
-  const [error, setError] = useState<string | null>(null);
+
+  const [, setError] = useState<string | null>(null);
   const [data, setData] = useState({
     sigma_tp: 0.00036206,
     diameter: "",
@@ -89,8 +90,10 @@ export default function AsteroidCard() {
     spkid: 3102743,
     n_dop_obs_used: "",
   });
-  const onOptionChangeHandler = (event) => {
-    const selectedBody = planetData.filter((planet) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const onOptionChangeHandler = (event: { target: { value: any } }) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const selectedBody = planetData.filter((planet: any) => {
       return planet.full_name == event.target.value;
     });
     setData(selectedBody[0]);
@@ -105,6 +108,7 @@ export default function AsteroidCard() {
       try {
         const Adata = await getPlanet();
         setPlanetData(Adata);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
         setError(error.message);
       }
@@ -112,8 +116,9 @@ export default function AsteroidCard() {
 
     fetchData();
     console.log(data);
-  }, []);
-  const planetNames = planetData.map((planetObject: object) => {
+  }, [data]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const planetNames = planetData.map((planetObject: any) => {
     return planetObject.full_name;
   });
 
