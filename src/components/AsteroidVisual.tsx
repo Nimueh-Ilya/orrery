@@ -10,7 +10,7 @@ export default function AsteroidVisual() {
     ) as HTMLCanvasElement;
 
     const viz = new Spacekit.Simulation(canvasElement, {
-      basePath: "/node_modules/spacekit.js/src",
+      basePath: "/public/spacekit.js/src",
     });
 
     viz.createStars();
