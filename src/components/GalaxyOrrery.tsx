@@ -6,7 +6,7 @@ export const GalaxyOrrery = () => {
 
   useEffect(() => {
     const viz = new Spacekit.Simulation(
-      document.getElementById("galaxy-container"),
+      document.getElementById("galaxy-container") as HTMLCanvasElement,
       {
         basePath: "./node_modules/spacekit.js/src",
       }

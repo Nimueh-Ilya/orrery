@@ -5,17 +5,17 @@ export default function AsteroidVisual() {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    const viz = new Spacekit.Simulation(
-      document.getElementById("asteroid-visual"),
-      {
-        basePath: "./node_modules/spacekit.js/src",
-      }
-    );
+    const canvasElement = document.getElementById(
+      "asteroid-visual"
+    ) as HTMLCanvasElement;
+
+    const viz = new Spacekit.Simulation(canvasElement, {
+      basePath: "./node_modules/spacekit.js/src",
+    });
 
     viz.createStars();
     viz.createSphere("asteroid", {
       textureUrl: "/src/assets/asteroids/Generic_Celestia_asteroid_texture.jpg",
-
       rotation: {
         lambdaDeg: 251,
         betaDeg: -63,
