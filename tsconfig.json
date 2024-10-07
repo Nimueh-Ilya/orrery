@@ -3,6 +3,7 @@
     "strict": false
     // other options
   },
+
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },

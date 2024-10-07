@@ -10,13 +10,12 @@ export default function AsteroidVisual() {
     ) as HTMLCanvasElement;
 
     const viz = new Spacekit.Simulation(canvasElement, {
-      basePath: "/public/spacekit.js/src",
+      basePath: "./assets/spacekit.js/src",
     });
 
     viz.createStars();
     viz.createSphere("asteroid", {
-      textureUrl:
-        "/public/assets/asteroids/Generic_Celestia_asteroid_texture.jpg",
+      textureUrl: "./assets/asteroids/Generic_Celestia_asteroid_texture.jpg",
       rotation: {
         lambdaDeg: 251,
         betaDeg: -63,
